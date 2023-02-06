@@ -7,13 +7,26 @@ def create_randint_list(k, low=0, high=99):
 
 fake = Faker()
 
-def create_fake_csv(**kwargs):
+def create_fake_csv(rows, **kwargs):
+    """ Pre-Conditions: Takes in keywords and uses the type(value) of the keys as a guide to create a fake csv file
+        Post-Conditions: A fake csv file is created
+    """
     fieldnames = []
-    for key, value in kwargs.items():
-        print('{key}: {value}'.format(key=key, value=value))
-        fieldnames.append(key)
     with open('fake.csv', 'w', newline='') as file:
+        for key, value in kwargs.items():
+            print('{key}: {value}'.format(key=key, value=value))
+            fieldnames.append(key)
         dict_writer = csv.DictWriter(file, delimiter=',', fieldnames=fieldnames)
-        dict_writer.writerow()
+        dict_writer.writeheader()
+        row = {}
+        while rows > 0:
+            for fieldname in fieldnames:
+                if fieldname == 'name' and type(kwargs.get('name')) is str:
+                    row[fieldname] = fake.name()
+                else 
+            dict_writer.writerow(row)
+            row = {}
+            rows -= 1
 
-create_fake_csv(name='Marcus', age=17)
+
+create_fake_csv(3, name=9)
