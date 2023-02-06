@@ -9,7 +9,7 @@ fake = Faker()
 
 def create_fake_csv(rows, **kwargs):
     """ Pre-Conditions: Takes in keywords and uses the type(value) of the keys as a guide to create a fake csv file
-        Post-Conditions: A fake csv file is created
+        Post-Condition: A fake csv file is created
     """
     fieldnames = []
     with open('fake.csv', 'w', newline='') as file:
@@ -21,9 +21,10 @@ def create_fake_csv(rows, **kwargs):
         row = {}
         while rows > 0:
             for fieldname in fieldnames:
-                if fieldname == 'name' and type(kwargs.get('name')) is str:
+                if fieldname == 'name':
                     row[fieldname] = fake.name()
-                else 
+                elif fieldname == 'age':
+                    row[fieldname] = 
             dict_writer.writerow(row)
             row = {}
             rows -= 1
