@@ -1,6 +1,7 @@
 import random as r
 from faker import Faker
 import csv
+import sys
 
 def create_randint_list(k, low=0, high=99):
     return [r.randint(low, high) for i in range(k)]
@@ -8,6 +9,12 @@ def create_randint_list(k, low=0, high=99):
 fake = Faker()
 
 uid = 1
+
+def sanitize_string_to_dict(string):
+    key_values_string = string.split()
+    argument_dict = {}
+    for i in key_values_string:
+        argument_dict[i.split('=')[0]] = i.split('=')[1]
 
 def create_fake_csv(rows, **kwargs):
     """ Pre-Conditions: Takes in keywords and uses the name of the keys as a guide to create a fake csv file
@@ -56,5 +63,4 @@ def create_fake_csv(rows, **kwargs):
 #           address = {int value}; The value holds no significance for now.
 # 
 
-create_fake_csv(5, id=1, name=2, age=[18, 60], email=1, address=1)
-print(create_fake_csv.__doc__)
+create_fake_csv(sys.argv[1], *sanitize_string_to_dict(sys.argv[2]))

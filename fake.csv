@@ -1,7 +1,6 @@
-id ,name               ,age ,email                     ,address
- 1 ,Bruce Taylor       , 59 ,tonicastro@example.net    ,"0470 Thompson Ways Apt. 430 New Erica, AK 98355"
- 2 ,Melissa Richardson , 23 ,huangkristine@example.net ,"0611 Blevins Forges Reneeton, DC 23284"
- 3 ,Rebecca Brown      , 69 ,medinajose@example.org    ,"933 Mathis Harbors Tiffanystad, AL 78450"
- 4 ,Gabrielle Lopez    , 63 ,ismith@example.com        ,"967 Tamara Cove Smithmouth, KY 13663"
- 5 ,Zachary James      , 55 ,antonio16@example.net     ,"4092 Madison Road Suite 226 West Pam, ME 42909"
-
+id ,name            ,age ,email                     ,address
+ 1 ,Patrick Cline   , 17 ,yandrews@example.com      ,"8031 Stark Stravenue East Robertchester, TN 89837"
+ 2 ,Carrie Guerrero , 24 ,zellis@example.com        ,"598 Shaffer Rapids Jeffreyburgh, NH 66750"
+ 3 ,Carrie Robbins  , 21 ,timothymiller@example.net ,"75869 Karen Forest Veronicaburgh, OR 68633"
+ 4 ,Taylor Adams    , 21 ,jeremy87@example.org      ,"7352 Bradley Hollow Suite 580 Coleland, MD 68768"
+ 5 ,Dana Ward       , 20 ,ebaldwin@example.org      ,"97319 Sean Flats West Cindyton, AR 31629"
