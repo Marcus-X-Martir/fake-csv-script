@@ -7,7 +7,7 @@ fake = Faker()
 uid = 1
 
 def sanitize_string_to_dict(string):
-    key_values_string = string.split()
+    key_values_string = string.split(',')
     argument_dict = {}
     for i in key_values_string:
         if i.split('=')[1].isdigit():
@@ -38,7 +38,13 @@ def create_fake_csv(rows, **kwargs):
                     elif kwargs[fieldname] == 3:
                         row[fieldname] = ' '.join(fake.name().split()[:3])
                 elif fieldname == 'email':
-                    row[fieldname] = fake.email()
+                    row[fieldname] = r.choice([fake.email().split('@')[0] + ["@gmail.com", "@outlook.com", "@proton.me"][i] for i in range(3)])
+                    if kwargs[fieldname] == "gmail":
+                        row[fieldname] = fake.email().split('@')[0] + "@gmail.com"
+                    elif kwargs[fieldname] == "outlook.com":
+                        row[fieldname] = fake.email().split('@')[0] + "@outlook.com"
+                    elif kwargs[fieldname] == "proton":
+                        row[fieldname] = fake.email().split('@')[0] + "@proton.me"
                 elif fieldname == 'age':
                     row[fieldname] = r.randint(kwargs[fieldname][0], kwargs[fieldname][1])
                 elif fieldname == 'address':
