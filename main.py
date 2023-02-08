@@ -53,12 +53,12 @@ def create_fake_csv(rows, **kwargs):
 
 #
 # create_fake_csv() can take in the following arguements:
-# REQUIRED: rows = {int value}; This will determine how many rows to write; Take note that an additional row will be added for the header.
-# optional: id = {int value}; The value holds no significance for now,
-#           name = {int value from 1 to 3 inclusive}; 1 = first name; 2 = first and last; 3 = first and last plus possible title,
-#           age = {list with 2 ints in the order of less to greater}; age[0] = minimum age; age[1] = maximum age,
-#           email = {int value}; The value holds no significance for now,
-#           address = {int value}; The value holds no significance for now.
+# REQUIRED: rows={int value}; This will determine how many rows to write; Take note that an additional row will be added for the header.
+# 1 REQUIRED: id={int value}; The value holds no significance for now,
+#           name={int value from 1 to 3 inclusive}; 1 = first name; 2 = first and last; 3 = first and last plus possible title,
+#            age={list with 2 ints in the order of less to greater}; age[0] = minimum age; age[1] = maximum age,
+#          email={int value}; The value holds no significance for now,
+#        address={int value}; The value holds no significance for now.
 # 
 
 create_fake_csv(int(sys.argv[1]), **sanitize_string_to_dict(str(sys.argv[2])))
