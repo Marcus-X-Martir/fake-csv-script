@@ -3,18 +3,17 @@ from faker import Faker
 import csv
 import sys
 
-def create_randint_list(k, low=0, high=99):
-    return [r.randint(low, high) for i in range(k)]
-
 fake = Faker()
-
 uid = 1
 
 def sanitize_string_to_dict(string):
     key_values_string = string.split()
     argument_dict = {}
     for i in key_values_string:
-        argument_dict[i.split('=')[0]] = i.split('=')[1]
+        if i.split('=')[1].isdigit():
+            argument_dict[i.split('=')[0]] = int(i.split('=')[1])
+        else:
+            argument_dict[i.split('=')[0]] = i.split('=')[1]
     return argument_dict
 
 def create_fake_csv(rows, **kwargs):
@@ -62,4 +61,4 @@ def create_fake_csv(rows, **kwargs):
 #           address = {int value}; The value holds no significance for now.
 # 
 
-create_fake_csv(int(sys.argv[1]), **sanitize_string_to_dict(sys.argv[2]))
+create_fake_csv(int(sys.argv[1]), **sanitize_string_to_dict(str(sys.argv[2])))
