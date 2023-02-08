@@ -15,6 +15,7 @@ def sanitize_string_to_dict(string):
     argument_dict = {}
     for i in key_values_string:
         argument_dict[i.split('=')[0]] = i.split('=')[1]
+    return argument_dict
 
 def create_fake_csv(rows, **kwargs):
     """ Pre-Conditions: Takes in keywords and uses the name of the keys as a guide to create a fake csv file
@@ -37,8 +38,6 @@ def create_fake_csv(rows, **kwargs):
                         row[fieldname] = ' '.join(fake.name().split()[:2])
                     elif kwargs[fieldname] == 3:
                         row[fieldname] = ' '.join(fake.name().split()[:3])
-                    else:
-                        raise(valueError)
                 elif fieldname == 'email':
                     row[fieldname] = fake.email()
                 elif fieldname == 'age':
@@ -63,4 +62,4 @@ def create_fake_csv(rows, **kwargs):
 #           address = {int value}; The value holds no significance for now.
 # 
 
-create_fake_csv(sys.argv[1], *sanitize_string_to_dict(sys.argv[2]))
+create_fake_csv(int(sys.argv[1]), **sanitize_string_to_dict(sys.argv[2]))
